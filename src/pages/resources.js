@@ -8,7 +8,7 @@ import Layout from '../components/Layout/Layout'
 import DropdownGroup from '../components/DropdownGroup/DropdownGroup'
 import Dropdown from '../components/DropdownGroup/Dropdown/Dropdown'
 
-import { filterColumns } from '../../settings/resources'
+// import { filterColumns } from '../../settings/resources'
 
 import styles from '../styles/resources.module.scss'
 
@@ -21,8 +21,6 @@ const shuffleArray = array => {
     ;[array[i], array[j]] = [array[j], array[i]]
   }
 }
-
-const imgpath = '/assets/images/resources/'
 
 // non-filterable columns
 const infoColumns = ['Name', 'Description', 'Image', 'Link', 'Organization']
@@ -68,21 +66,16 @@ const Resources = props => {
     edge => edge.node.data
   )
 
-  console.log(resourcesContents)
-
   const [searchString, setSearchString] = React.useState('')
   const [filters, setFilters] = React.useState([])
 
   React.useEffect(() => {
     // Identify all filterable columns
-    console.log(resourcesContents)
     const filterColumns = [
       ...new Set(
         resourcesContents.map(resource => Object.keys(resource)).flat()
       ),
     ].filter(column => !infoColumns.includes(column))
-
-    console.log(filterColumns)
 
     // Identify unique values in each filterable column
     const filterOptions = filterColumns.map(column => ({
@@ -114,21 +107,17 @@ const Resources = props => {
 
     sortedResources = [...keyResources, ...otherResources]
 
-    console.log(sortedResources)
-
     setFilters(filterSetup)
 
     noResourcesMessage = [
       {
-        name: 'No resources matching those filters.',
-        description:
+        Name: 'No resources matching those filters.',
+        Description:
           'If you have a resource that could help, please consider submitting it through the Contact Us page.',
-        organization: '',
-        topic: '',
-        phase: '',
-        image: '',
-        link: '',
-        focus: '',
+        Organization: '',
+        Topic: '',
+        Image: '',
+        Link: '',
       },
     ]
   }, [])
@@ -137,7 +126,7 @@ const Resources = props => {
     isCaseSensitive: false,
     distance: 100,
     shouldSort: true,
-    keys: ['name', 'description', 'topic'],
+    keys: ['Name', 'Description', 'Topic', 'Organization'],
   }
 
   const fuse = new Fuse(sortedResources, searchOptions)
@@ -146,6 +135,8 @@ const Resources = props => {
   if (searchString !== '') {
     searchedResources = fuse.search(searchString).map(result => result.item)
   }
+
+  console.log(searchedResources)
 
   // find which columns have active filters
   // and build array of the filter strings
