@@ -20,6 +20,9 @@ module.exports = {
           {
             baseId: `appMbNcOXaqDud7ts`,
             tableName: `Blog`,
+            defaultValues: {
+              Additional_Images: false,
+            },
           },
         ],
       },

@@ -54,7 +54,7 @@ const Blog = () => {
       .map(({ node: post }) => (
         <div className={styles.post} key={post.id}>
           <h1>
-            <Link to={post.data.url}>{post.data.Title}</Link>
+            <Link to={post.data.URL}>{post.data.Title}</Link>
           </h1>
           <h2>
             {new Date(post.data.Date).toLocaleString('default', {
