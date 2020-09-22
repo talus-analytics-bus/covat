@@ -16,7 +16,7 @@
   flex-wrap: wrap;
 
   h1 {
-    background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 138 138' style='enable-background:new 0 0 138 138;' xml:space='preserve'%3E%3Ccircle style='fill:%23409385;' cx='69' cy='69' r='69'/%3E%3Cpath style='fill:%2328334B;' d='M89.07,63.19L65.96,86.31L50.6,70.95l23.11-23.12L89.07,63.19z M92.88,59.38l1.94-1.94 c4.23-4.23,4.23-11.12,0-15.36c-4.23-4.23-11.12-4.23-15.36,0l-1.94,1.94L92.88,59.38z M47.61,75.59L44.14,89.5 c-0.23,0.92,0.04,1.89,0.71,2.56c0.67,0.67,1.64,0.94,2.56,0.71l13.91-3.48L47.61,75.59z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 138 138' style='enable-background:new 0 0 138 138;' xml:space='preserve'%3E%3Ccircle style='fill:%231494C1;' cx='69' cy='69' r='69'/%3E%3Cpath style='fill:%23FFFFFF;' d='M89.07,63.19L65.96,86.31L50.6,70.95l23.11-23.12L89.07,63.19z M92.88,59.38l1.94-1.94 c4.23-4.23,4.23-11.12,0-15.36c-4.23-4.23-11.12-4.23-15.36,0l-1.94,1.94L92.88,59.38z M47.61,75.59L44.14,89.5 c-0.23,0.92,0.04,1.89,0.71,2.56c0.67,0.67,1.64,0.94,2.56,0.71l13.91-3.48L47.61,75.59z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: 0 center;
     font-size: 40px;
@@ -25,7 +25,7 @@
     padding-left: calc(2.25em + 15px);
     padding-top: 2rem;
     padding-bottom: 2rem;
-    color: #28334b;
+    color: #4c2668;
     line-height: 1.1em;
   }
 
@@ -37,9 +37,9 @@
     a {
       display: block;
       text-decoration: none;
-      color: white;
-      background-color: #409385;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 76.5 76.5' style='enable-background:new 0 0 76.5 76.5;' xml:space='preserve'%3E%3Ccircle style='fill:%23FFFFFF;' cx='38.2' cy='38.2' r='38.2'/%3E%3Cpath style='fill:%23273349;' d='M52.1,20H25c-1.9,0-3.4,1.5-3.4,3.4v29.2c0,1.9,1.5,3.4,3.4,3.4h27.2c1.9,0,3.4-1.5,3.4-3.4V23.3 C55.5,21.5,54,20,52.1,20z M43.6,45.4H28.4V42h15.3V45.4z M48.7,38.6H28.4v-3.4h20.4V38.6z M48.7,31.8H28.4v-3.4h20.4V31.8z'/%3E%3C/svg%3E%0A");
+      color: #383838;
+      background-color: #8fc8db;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 76.5 76.5' style='enable-background:new 0 0 76.5 76.5;' xml:space='preserve'%3E%3Ccircle style='fill:%23FFFFFF;' cx='38.2' cy='38.2' r='38.2'/%3E%3Cpath style='fill:%231494C1;' d='M52.1,20H25c-1.9,0-3.4,1.5-3.4,3.4v29.2c0,1.9,1.5,3.4,3.4,3.4h27.2c1.9,0,3.4-1.5,3.4-3.4V23.3 C55.5,21.5,54,20,52.1,20z M43.6,45.4H28.4V42h15.3V45.4z M48.7,38.6H28.4v-3.4h20.4V38.6z M48.7,31.8H28.4v-3.4h20.4V31.8z'/%3E%3C/svg%3E%0A");
       background-size: 2em 2em;
       background-repeat: no-repeat;
       background-position: calc(100% - 0.75em) 0.75em;
@@ -63,13 +63,13 @@
   .blogPosts {
     // This breaks IE
     // and isn't necessary as long
-    // as there are some blog posts 
+    // as there are some blog posts
     // display: flex;
     // flex-direction: column;
     // flex-grow: 1;
 
     .filters {
-      border-bottom: 2px solid #25695b;
+      border-bottom: 2px solid #e59900;
       // padding-bottom: 0.5rem;
       margin-bottom: 2rem;
 
@@ -84,7 +84,7 @@
         font-size: 1.2rem;
         margin: 0;
 
-        border-right: 1px solid #25695b55;
+        border-right: 1px solid #8fc8db;
 
         &:first-of-type {
           margin-left: 0;
@@ -96,7 +96,7 @@
 
         &:hover,
         &[aria-pressed='true'] {
-          background-color: #25695b22;
+          background-color: #d5e8ef;
         }
 
         &[aria-pressed='true'] {
@@ -132,7 +132,7 @@
       h2 {
         font-size: 18px;
         font-weight: 500;
-        color: #2a7c6c;
+        color: #168e49;
         text-transform: uppercase;
       }
 
@@ -142,7 +142,7 @@
       }
 
       a {
-        color: #479283;
+        color: #168e49;
       }
 
       p {

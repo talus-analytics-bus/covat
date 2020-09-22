@@ -142,7 +142,7 @@ const Blog = () => {
   return (
     <Layout>
       <Helmet
-        title={`Notes From The Field - The COVID Local Blog`}
+        title={`Clear COVID Blog`}
         meta={[
           {
             name: 'description',
@@ -152,7 +152,7 @@ const Blog = () => {
       />
 
       <header className={styles.header}>
-        <h1>Notes From The Field</h1>
+        <h1>Clear COVID Blog</h1>
         <Link to="/contact/">Contact us</Link>
       </header>
 
