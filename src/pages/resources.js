@@ -276,18 +276,16 @@ const Resources = props => {
 
       <section className={styles.main}>
         <p>
-          These resources are a curated set of information sources and tools
-          designed to support and inform operational decisions during the
-          COVID-19 response effort. All are publicly-accessible and free to
-          access.
-        </p>
-        <p>
-          Resources are tagged by topic and phase of response. Use the filters
-          below to find relevant resources. Use the Contact Us button on the
-          upper right to share additional resources of interest.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <p style={{ fontStyle: 'italic' }}>
-          The COVID-Local Team is not responsible for the content on these
+          The Clear COVID Team is not responsible for the content on these
           external pages.
         </p>
         <h3>Filter resources</h3>
