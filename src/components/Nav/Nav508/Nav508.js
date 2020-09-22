@@ -68,7 +68,6 @@ const Nav508 = props => {
     <nav className={styles.nav} aria-label="Main Navigation">
       <div className={styles.main}>
         <Link
-          exact
           to={`/`}
           activeClassName={styles.active}
           className={styles.navbarLeft}

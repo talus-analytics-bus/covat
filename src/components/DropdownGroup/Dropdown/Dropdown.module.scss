@@ -1,0 +1,57 @@
+
+
+.closer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 1;
+}
+
+.dropDown {
+  position: relative;
+  background-color: #fff;
+  padding: 5px 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 3px;
+  margin-right: 2px;
+  margin-top: 2px;
+
+  .label {
+    border: none;
+    background: none;
+    text-transform: capitalize;
+    transition: 150ms ease;
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 14.7 9.8' style='enable-background:new 0 0 14.7 9.8;' xml:space='preserve'%3E%3Cpolygon style='fill:%23333333;' points='0,0 7.35,9.8 14.7,0 '/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-size: .6em;
+    background-position: calc(100% - .3em) .7em;
+    padding-right: 2em;
+    border-radius: 5px;
+  }
+
+
+  .hider {
+    position: absolute;
+    top: 30px;
+    left: -15px;
+    overflow: hidden;
+    height: 0;
+    transition: 150ms ease;
+    padding: 15px;
+    padding-top: 0;
+    z-index: 2;
+
+    .content {
+      background-color: #fff;
+      padding: 10px;
+      box-shadow: 1px 5px 10px rgba(0,0,0,.25);
+      border-radius: 10px;
+      border-top-left-radius: 0;
+      // border: 1px solid #eeeeee;
+      border-top: none;
+    }
+  }
+}
