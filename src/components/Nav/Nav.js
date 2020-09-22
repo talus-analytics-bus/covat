@@ -11,6 +11,9 @@ const Nav = () => (
     <Link to="/resources/" activeClassName={nav508Styles.active}>
       Resources
     </Link>
+    <Link to="/blog/" activeClassName={nav508Styles.active}>
+      Blog
+    </Link>
     <Link to="/contact/" activeClassName={nav508Styles.active}>
       Contact
     </Link>

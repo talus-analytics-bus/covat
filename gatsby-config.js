@@ -17,6 +17,10 @@ module.exports = {
             baseId: `appMbNcOXaqDud7ts`,
             tableName: `Resources`,
           },
+          {
+            baseId: `appMbNcOXaqDud7ts`,
+            tableName: `Blog`,
+          },
         ],
       },
     },

@@ -42,7 +42,7 @@ let noResourcesMessage = [
 const Resources = props => {
   const airtableResources = useStaticQuery(graphql`
     query resources {
-      allAirtable {
+      allAirtable(filter: { table: { eq: "Resources" } }) {
         edges {
           node {
             data {
@@ -136,8 +136,6 @@ const Resources = props => {
     searchedResources = fuse.search(searchString).map(result => result.item)
   }
 
-  console.log(searchedResources)
-
   // find which columns have active filters
   // and build array of the filter strings
   const activeFilters = {}
@@ -220,8 +218,6 @@ const Resources = props => {
       </div>
     )
   )
-
-  console.log(filteredResources)
 
   // create the resources elements
   const resourcesElements = filteredResources.map(r => (
