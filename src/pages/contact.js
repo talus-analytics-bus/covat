@@ -10,7 +10,6 @@ const Contact = () => {
   const [successMessage, setSuccessMessage] = React.useState('')
   const [errorMessage, setErrorMessage] = React.useState('')
   const [submitButtonText, setSubmitButtonText] = React.useState('Submit')
-  const [type, setType] = React.useState('')
 
   const handleSubmit = event => {
     event.preventDefault()

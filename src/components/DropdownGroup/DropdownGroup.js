@@ -22,14 +22,15 @@ const DropdownGroup = props => {
 
   return (
     <>
-      <div
-        role="button"
+      <button
+        aria-label="Close Dropdown"
         className={styles.closer}
+        tabIndex="0"
         onClick={() => {
           setOpen(0)
         }}
         style={open === 0 ? { display: 'none' } : { display: 'block' }}
-      ></div>
+      ></button>
       {children}
     </>
   )
