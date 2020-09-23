@@ -21,11 +21,7 @@ export default function Template({
     ).url
 
     return ReactDOMServer.renderToString(
-      <img
-        src={url}
-        alt={`Blog post image ${filename}`}
-        style={{ width: '100%' }}
-      />
+      <img src={url} alt={`${filename}`} style={{ width: '100%' }} />
     )
   }
 

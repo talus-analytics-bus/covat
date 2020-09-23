@@ -24,6 +24,10 @@ module.exports = {
               Additional_Images: false,
             },
           },
+          {
+            baseId: `appMbNcOXaqDud7ts`,
+            tableName: `Resources Page Text`,
+          },
         ],
       },
     },

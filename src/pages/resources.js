@@ -8,11 +8,13 @@ import Layout from '../components/Layout/Layout'
 import DropdownGroup from '../components/DropdownGroup/DropdownGroup'
 import Dropdown from '../components/DropdownGroup/Dropdown/Dropdown'
 
-// import { filterColumns } from '../../settings/resources'
-
 import styles from '../styles/resources.module.scss'
 
-// import resourcesContents from '../resources/resourcesContents'
+import {
+  header,
+  headerParagraph,
+  disclaimer,
+} from '../../settings/content/resourcesContent.js'
 
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 const shuffleArray = array => {
@@ -40,9 +42,9 @@ let noResourcesMessage = [
 ]
 
 const Resources = props => {
-  const airtableResources = useStaticQuery(graphql`
+  const queryResult = useStaticQuery(graphql`
     query resources {
-      allAirtable(filter: { table: { eq: "Resources" } }) {
+      resources: allAirtable(filter: { table: { eq: "Resources" } }) {
         edges {
           node {
             data {
@@ -59,10 +61,25 @@ const Resources = props => {
           }
         }
       }
+      resourcesPageText: allAirtable(
+        filter: { table: { eq: "Resources Page Text" } }
+      ) {
+        nodes {
+          data {
+            Section_Name
+            Markdown
+          }
+        }
+      }
     }
   `)
 
-  const resourcesContents = airtableResources.allAirtable.edges.map(
+  console.log(queryResult)
+
+  // console.log(airtableResources)
+  // console.log(airtableText)
+
+  const resourcesContents = queryResult.resources.edges.map(
     edge => edge.node.data
   )
 
@@ -256,23 +273,23 @@ const Resources = props => {
       />
 
       <header className={styles.header}>
-        <h1>Recommended Resources</h1>
+        <h1>
+          {
+            queryResult.resourcesPageText.nodes.find(
+              node => node.data.Section_Name === 'Header'
+            ).data.Markdown
+          }
+        </h1>
         <Link to="/contact/">Contact us</Link>
       </header>
 
       <section className={styles.main}>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <p style={{ fontStyle: 'italic' }}>
-          The Clear COVID Team is not responsible for the content on these
-          external pages.
+          {
+            queryResult.resourcesPageText.nodes.find(
+              node => node.data.Section_Name === 'Header Paragraph'
+            ).data.Markdown
+          }
         </p>
         <h3>Filter resources</h3>
         <section className={styles.filterSection}>
