@@ -68,13 +68,8 @@ const Resources = props => {
     }
   `)
 
-  console.log(queryResult)
-
-  // console.log(airtableResources)
-  // console.log(airtableText)
-
-  const resourcesContents = queryResult.resources.edges.map(
-    edge => edge.node.data
+  const [resourcesContents] = React.useState(
+    queryResult.resources.edges.map(edge => edge.node.data)
   )
 
   const [searchString, setSearchString] = React.useState('')
@@ -131,7 +126,7 @@ const Resources = props => {
         Link: '',
       },
     ]
-  }, [])
+  }, [resourcesContents])
 
   const searchOptions = {
     isCaseSensitive: false,
