@@ -10,12 +10,6 @@ import Dropdown from '../components/DropdownGroup/Dropdown/Dropdown'
 
 import styles from '../styles/resources.module.scss'
 
-import {
-  header,
-  headerParagraph,
-  disclaimer,
-} from '../../settings/content/resourcesContent.js'
-
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 const shuffleArray = array => {
   for (let i = array.length - 1; i > 0; i--) {
