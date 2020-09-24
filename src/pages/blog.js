@@ -166,13 +166,13 @@ const Blog = () => {
               onClick={onClickFilter}
               aria-pressed={filter === 'NOTES FROM THE FIELD'}
             >
-              NOTES FROM THE FIELD
+              PRESS RELEASES
             </button>
             <button
               onClick={onClickFilter}
               aria-pressed={filter === 'REPORTS FROM EXPERTS'}
             >
-              REPORTS FROM EXPERTS
+              REPORTS
             </button>
           </div>
 
