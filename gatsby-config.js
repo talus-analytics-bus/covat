@@ -28,6 +28,10 @@ module.exports = {
             baseId: `appMbNcOXaqDud7ts`,
             tableName: `Resources Page Text`,
           },
+          {
+            baseId: `appMbNcOXaqDud7ts`,
+            tableName: `Contact Page Text`,
+          },
         ],
       },
     },

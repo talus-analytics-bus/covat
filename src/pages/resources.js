@@ -10,6 +10,11 @@ import Dropdown from '../components/DropdownGroup/Dropdown/Dropdown'
 
 import styles from '../styles/resources.module.scss'
 
+// markdown parsing
+import unified from 'unified'
+import markdown from 'remark-parse'
+import html from 'remark-html'
+
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 const shuffleArray = array => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -37,7 +42,7 @@ let noResourcesMessage = [
 
 const Resources = props => {
   const queryResult = useStaticQuery(graphql`
-    query resources {
+    query resourcesPage {
       resources: allAirtable(filter: { table: { eq: "Resources" } }) {
         edges {
           node {
@@ -273,13 +278,18 @@ const Resources = props => {
       </header>
 
       <section className={styles.main}>
-        <p>
-          {
-            queryResult.resourcesPageText.nodes.find(
-              node => node.data.Section_Name === 'Header Paragraph'
-            ).data.Markdown
-          }
-        </p>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: unified()
+              .use(markdown)
+              .use(html)
+              .processSync(
+                queryResult.resourcesPageText.nodes.find(
+                  node => node.data.Section_Name === 'Header Paragraph'
+                ).data.Markdown
+              ),
+          }}
+        />
         <h3>Filter resources</h3>
         <section className={styles.filterSection}>
           <div className={styles.filters}>

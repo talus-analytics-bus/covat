@@ -1,15 +1,36 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
 import axios from 'axios'
 
 import Layout from '../components/Layout/Layout'
 
 import styles from '../styles/contact.module.scss'
 
+// markdown parsing
+import unified from 'unified'
+import markdown from 'remark-parse'
+import html from 'remark-html'
+
 const Contact = () => {
   const [successMessage, setSuccessMessage] = React.useState('')
   const [errorMessage, setErrorMessage] = React.useState('')
   const [submitButtonText, setSubmitButtonText] = React.useState('Submit')
+
+  const queryResult = useStaticQuery(graphql`
+    query contactPage {
+      contactPageText: allAirtable(
+        filter: { table: { eq: "Contact Page Text" } }
+      ) {
+        nodes {
+          data {
+            Section_Name
+            Markdown
+          }
+        }
+      }
+    }
+  `)
 
   const handleSubmit = event => {
     event.preventDefault()
@@ -63,7 +84,13 @@ const Contact = () => {
         ]}
       />
       <header className={styles.header}>
-        <h1>Contact us</h1>
+        <h1>
+          {
+            queryResult.contactPageText.nodes.find(
+              node => node.data.Section_Name === 'Header'
+            ).data.Markdown
+          }
+        </h1>
       </header>
 
       <form
@@ -72,29 +99,45 @@ const Contact = () => {
         aria-label="Contact Us"
       >
         <div className={styles.formRow}>
-          <div className={styles.accessibility}>
-            <p>
-              If you have any accessibility issues using this site, please
-              contact us directly at{' '}
-              <a href="#">[Clear COVID Accessibility Address]</a>.
-            </p>
+          <div
+            className={styles.accessibility}
+            dangerouslySetInnerHTML={{
+              __html: unified()
+                .use(markdown)
+                .use(html)
+                .processSync(
+                  queryResult.contactPageText.nodes.find(
+                    node => node.data.Section_Name === 'Accessibility Banner'
+                  ).data.Markdown
+                ),
+            }}
+          >
+            {/* <p> */}
+            {/*   If you have any accessibility issues using this site, please */}
+            {/*   contact us directly at{' '} */}
+            {/*   <a href="#">[Clear COVID Accessibility Address]</a>. */}
+            {/* </p> */}
           </div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <p>
-            [PRIVACY POLICY] Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat.(
-            <a href="#">privacy policy</a>)
-          </p>
+          {console.log(queryResult)}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: unified()
+                .use(markdown)
+                .use(html)
+                .processSync(
+                  queryResult.contactPageText.nodes.find(
+                    node => node.data.Section_Name === 'Header Paragraph'
+                  ).data.Markdown
+                ),
+            }}
+          />
+          {/* <p> */}
+          {/*   [PRIVACY POLICY] Lorem ipsum dolor sit amet, consectetur adipiscing */}
+          {/*   elit, sed do eiusmod tempor incididunt ut labore et dolore magna */}
+          {/*   aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco */}
+          {/*   laboris nisi ut aliquip ex ea commodo consequat.( */}
+          {/*   <a href="#">privacy policy</a>) */}
+          {/* </p> */}
         </div>
         <div className={styles.formRow}>{errorMessage}</div>
         <div className={styles.formRow}>
