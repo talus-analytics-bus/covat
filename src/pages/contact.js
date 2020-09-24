@@ -68,8 +68,6 @@ const Contact = () => {
           )
         )
     }
-
-    //
   }
 
   return (
@@ -111,14 +109,7 @@ const Contact = () => {
                   ).data.Markdown
                 ),
             }}
-          >
-            {/* <p> */}
-            {/*   If you have any accessibility issues using this site, please */}
-            {/*   contact us directly at{' '} */}
-            {/*   <a href="#">[Clear COVID Accessibility Address]</a>. */}
-            {/* </p> */}
-          </div>
-          {console.log(queryResult)}
+          ></div>
           <div
             dangerouslySetInnerHTML={{
               __html: unified()
@@ -131,13 +122,6 @@ const Contact = () => {
                 ),
             }}
           />
-          {/* <p> */}
-          {/*   [PRIVACY POLICY] Lorem ipsum dolor sit amet, consectetur adipiscing */}
-          {/*   elit, sed do eiusmod tempor incididunt ut labore et dolore magna */}
-          {/*   aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco */}
-          {/*   laboris nisi ut aliquip ex ea commodo consequat.( */}
-          {/*   <a href="#">privacy policy</a>) */}
-          {/* </p> */}
         </div>
         <div className={styles.formRow}>{errorMessage}</div>
         <div className={styles.formRow}>
@@ -161,50 +145,6 @@ const Contact = () => {
             <input type="text" id="Organization" name="Organization" />
           </label>
         </div>
-
-        {/* <div className={styles.formRow}> */}
-        {/*   <label className={styles.type} htmlFor="Type"> */}
-        {/*     Topic* */}
-        {/*     <select */}
-        {/*       name="Type" */}
-        {/*       onChange={e => { */}
-        {/*         setType(e.target.value) */}
-        {/*         console.log(e.target.value) */}
-        {/*       }} */}
-        {/*     > */}
-        {/*       <option value="Comment">General comment</option> */}
-        {/*       <option value="Feedback on the Guide"> */}
-        {/*         Feedback on the Guide */}
-        {/*       </option> */}
-        {/*       <option value="Question">Submit question</option> */}
-        {/*     </select> */}
-        {/*   </label> */}
-        {/*   <label */}
-        {/*     className={styles.type} */}
-        {/*     htmlFor="Type" */}
-        {/*     style={ */}
-        {/*       type === 'Question' */}
-        {/*         ? { visibility: 'visible' } */}
-        {/*         : { visibility: 'hidden' } */}
-        {/*     } */}
-        {/*   > */}
-        {/*     Comment category* */}
-        {/*     <select name="Category"> */}
-        {/*       <option value="General">General</option> */}
-        {/*       <option value="Medical Capacity">Medical Capacity</option> */}
-        {/*       <option value="Logistics">Logistics / PPE Suppy Chain</option> */}
-        {/*       <option value="Testing, Contact Tracing, Surveilance"> */}
-        {/*         Disease Testing, Contact Tracing, & Surveilance */}
-        {/*       </option> */}
-        {/*       <option value="Modeling">Modeling</option> */}
-        {/*       <option value="Vulnerable Populations, Low Resource Settings"> */}
-        {/*         Vulnerable Populations, Low Resource Settings */}
-        {/*       </option> */}
-        {/*       <option value="Other">Other</option> */}
-        {/*     </select> */}
-        {/*   </label> */}
-        {/* </div> */}
-
         <div className={styles.formRow}>
           <label className={styles.body} htmlFor="body">
             Comment or question*
