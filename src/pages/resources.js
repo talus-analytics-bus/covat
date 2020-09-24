@@ -52,7 +52,7 @@ const Resources = props => {
               Name
               Organization
               Topic
-              New_Filter
+              Media_Type
               Image {
                 url
               }
@@ -279,6 +279,7 @@ const Resources = props => {
 
       <section className={styles.main}>
         <div
+          className={styles.headerTextSection}
           dangerouslySetInnerHTML={{
             __html: unified()
               .use(markdown)
