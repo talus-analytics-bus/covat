@@ -19,15 +19,19 @@ module.exports = {
           },
           {
             baseId: `appMbNcOXaqDud7ts`,
+            tableName: `About Page Text`,
+          },
+          {
+            baseId: `appMbNcOXaqDud7ts`,
             tableName: `Resources Page Text`,
           },
           {
             baseId: `appMbNcOXaqDud7ts`,
-            tableName: `Contact Page Text`,
+            tableName: `Resources`,
           },
           {
             baseId: `appMbNcOXaqDud7ts`,
-            tableName: `Resources`,
+            tableName: `Contact Page Text`,
           },
           {
             baseId: `appMbNcOXaqDud7ts`,

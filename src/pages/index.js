@@ -158,7 +158,7 @@ const LandingPage = props => {
                   ).data.Markdown
                 }
               </p>
-              <Link className={styles.buttonlink} to="/ask-the-experts/">
+              <Link className={styles.buttonlink} to="/about/">
                 {
                   data.homePageText.nodes.find(
                     node => node.data.Section_Name === 'Column 1 Button'
