@@ -20,6 +20,7 @@ module.exports = {
           {
             baseId: `appMbNcOXaqDud7ts`,
             tableName: `About Page Text`,
+            tableView: `Grid view`,
           },
           {
             baseId: `appMbNcOXaqDud7ts`,

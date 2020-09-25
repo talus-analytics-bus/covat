@@ -29,28 +29,25 @@ const About = () => {
     }
   `)
 
-  console.log(
-    queryResult.aboutPageText.nodes.filter(
-      node => node.data.Section_Name === 'Bio'
-    )
+  const [bioSections] = React.useState(
+    queryResult.aboutPageText.nodes
+      .filter(node => node.data.Section_Name === 'Bio')
+      .reverse()
+      .map(bio => (
+        <div className={styles.bio} key={bio.data.Markdown}>
+          <img src={bio.data.Portrait[0].url} alt="Portrait" />
+          <div
+            className={styles.headerTextSection}
+            dangerouslySetInnerHTML={{
+              __html: unified()
+                .use(markdown)
+                .use(html)
+                .processSync(bio.data.Markdown),
+            }}
+          />
+        </div>
+      ))
   )
-
-  const bioSections = queryResult.aboutPageText.nodes
-    .filter(node => node.data.Section_Name === 'Bio')
-    .map(bio => (
-      <div className={styles.bio} key={bio.data.Portrait[0].filename}>
-        <img src={bio.data.Portrait[0].url} alt="Portrait" />
-        <div
-          className={styles.headerTextSection}
-          dangerouslySetInnerHTML={{
-            __html: unified()
-              .use(markdown)
-              .use(html)
-              .processSync(bio.data.Markdown),
-          }}
-        />
-      </div>
-    ))
 
   return (
     <Layout>
@@ -91,6 +88,19 @@ const About = () => {
         />
         <h1 className={styles.bottomBorder}>The Experts</h1>
         {bioSections}
+        <div
+          className={styles.disclaimer}
+          dangerouslySetInnerHTML={{
+            __html: unified()
+              .use(markdown)
+              .use(html)
+              .processSync(
+                queryResult.aboutPageText.nodes.find(
+                  node => node.data.Section_Name === 'Disclaimer'
+                ).data.Markdown
+              ),
+          }}
+        />
       </section>
     </Layout>
   )
