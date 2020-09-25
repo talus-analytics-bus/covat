@@ -8,6 +8,9 @@ import clearCOVIDLogo from '../../assets/logos/clearCOVIDLogo.svg'
 
 const Nav = () => (
   <Nav508 logo={clearCOVIDLogo} logoAlt="COVAT">
+    <Link to="/about/" activeClassName={nav508Styles.active}>
+      About
+    </Link>
     <Link to="/resources/" activeClassName={nav508Styles.active}>
       Resources
     </Link>
