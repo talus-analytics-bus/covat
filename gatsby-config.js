@@ -15,14 +15,7 @@ module.exports = {
         tables: [
           {
             baseId: `appMbNcOXaqDud7ts`,
-            tableName: `Resources`,
-          },
-          {
-            baseId: `appMbNcOXaqDud7ts`,
-            tableName: `Blog`,
-            defaultValues: {
-              Additional_Images: [{filename: '', url: ''}],
-            },
+            tableName: `Home Page Text`,
           },
           {
             baseId: `appMbNcOXaqDud7ts`,
@@ -31,6 +24,17 @@ module.exports = {
           {
             baseId: `appMbNcOXaqDud7ts`,
             tableName: `Contact Page Text`,
+          },
+          {
+            baseId: `appMbNcOXaqDud7ts`,
+            tableName: `Resources`,
+          },
+          {
+            baseId: `appMbNcOXaqDud7ts`,
+            tableName: `Blog`,
+            defaultValues: {
+              Additional_Images: [{ filename: '', url: '' }],
+            },
           },
         ],
       },
