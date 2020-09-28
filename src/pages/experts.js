@@ -4,7 +4,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 
 import Layout from '../components/Layout/Layout'
 
-import styles from '../styles/about.module.scss'
+import styles from '../styles/experts.module.scss'
 
 // markdown parsing
 import unified from 'unified'
@@ -13,17 +13,43 @@ import html from 'remark-html'
 
 const About = () => {
   const queryResult = useStaticQuery(graphql`
-    query aboutPage {
-      aboutPageText: allAirtable(filter: { table: { eq: "About Page Text" } }) {
+    query expertsPage {
+      aboutPageText: allAirtable(
+        filter: { table: { eq: "Experts Page Text" } }
+      ) {
         nodes {
           data {
             Section_Name
             Markdown
+            Portrait {
+              url
+              filename
+            }
           }
         }
       }
     }
   `)
+
+  const [bioSections] = React.useState(
+    queryResult.aboutPageText.nodes
+      .filter(node => node.data.Section_Name === 'Bio')
+      .reverse()
+      .map(bio => (
+        <div className={styles.bio} key={bio.data.Markdown}>
+          <img src={bio.data.Portrait[0].url} alt="Portrait" />
+          <div
+            className={styles.headerTextSection}
+            dangerouslySetInnerHTML={{
+              __html: unified()
+                .use(markdown)
+                .use(html)
+                .processSync(bio.data.Markdown),
+            }}
+          />
+        </div>
+      ))
+  )
 
   return (
     <Layout>
@@ -58,6 +84,21 @@ const About = () => {
               .processSync(
                 queryResult.aboutPageText.nodes.find(
                   node => node.data.Section_Name === 'Header Paragraph'
+                ).data.Markdown
+              ),
+          }}
+        />
+        <h1 className={styles.bottomBorder}>The Experts</h1>
+        {bioSections}
+        <div
+          className={styles.disclaimer}
+          dangerouslySetInnerHTML={{
+            __html: unified()
+              .use(markdown)
+              .use(html)
+              .processSync(
+                queryResult.aboutPageText.nodes.find(
+                  node => node.data.Section_Name === 'Disclaimer'
                 ).data.Markdown
               ),
           }}

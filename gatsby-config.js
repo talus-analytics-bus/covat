@@ -24,6 +24,11 @@ module.exports = {
           },
           {
             baseId: `appMbNcOXaqDud7ts`,
+            tableName: `Experts Page Text`,
+            tableView: `Grid view`,
+          },
+          {
+            baseId: `appMbNcOXaqDud7ts`,
             tableName: `Resources Page Text`,
           },
           {
