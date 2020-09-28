@@ -129,7 +129,7 @@ const LandingPage = props => {
                     ),
                 }}
               />
-              <Link className={styles.buttonlink} to="/about/">
+              <Link className={styles.buttonlink} to="/experts/">
                 Meet the Experts
               </Link>
             </div>

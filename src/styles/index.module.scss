@@ -113,9 +113,11 @@
       }
 
       @media (max-width: 900px) {
-        margin-right: 0rem;
         // padding: 2rem;
+        margin: 1.3rem;
+        margin-right: 0rem;
         order: 2;
+        overflow: hidden;
       }
 
       @media (max-width: 500px) {
@@ -133,6 +135,10 @@
         // font-weight: 400;
         // margin-bottom: 1rem;
         // font-size: 2.3rem;
+
+        @media (max-width: 900px) {
+          margin-bottom: 1rem;
+        }
 
         strong {
           font-weight: 800;
