@@ -193,9 +193,9 @@ const LandingPage = props => {
                         '...'
                       : resource.Description}
                     <br />
-                    <a href={resource.Link}>
-                      {resource.Link.split('/').slice(0, 3).join('/')}
-                    </a>
+                    {/* <a href={resource.Link}> */}
+                    {/*   {resource.Link.split('/').slice(0, 3).join('/')} */}
+                    {/* </a> */}
                   </p>
                 </>
               )}
@@ -242,7 +242,7 @@ const LandingPage = props => {
                         .contents.split(/<\/p>/g)[0]
                         .replace('<p>', '')
                         .split(' ')
-                        .slice(0, 50)
+                        .slice(0, 30)
                         .join(' ') +
                       '... ' +
                       renderToString(

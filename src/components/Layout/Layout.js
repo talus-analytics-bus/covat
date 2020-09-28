@@ -2,7 +2,7 @@ import React from 'react'
 
 import Nav from '../Nav/Nav'
 
-import './Layout.css'
+import './Layout.scss'
 import './Fonts.css'
 
 const Layout = props => {
