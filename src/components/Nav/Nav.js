@@ -11,11 +11,14 @@ const Nav = () => (
     <Link to="/about/" activeClassName={nav508Styles.active}>
       About
     </Link>
-    <Link to="/resources/" activeClassName={nav508Styles.active}>
-      Resources
+    <Link to="/experts/" activeClassName={nav508Styles.active}>
+      Experts
     </Link>
     <Link to="/blog/" activeClassName={nav508Styles.active}>
-      Blog
+      Reports
+    </Link>
+    <Link to="/resources/" activeClassName={nav508Styles.active}>
+      Resources
     </Link>
     <Link to="/contact/" activeClassName={nav508Styles.active}>
       Contact
