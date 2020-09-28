@@ -18,7 +18,7 @@ const Nav508 = props => {
   })
 
   React.useEffect(() => {
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
       if (
         (window.innerWidth > 1170) &
         (dropHiderRef.current.style.height !== 'block')
@@ -29,7 +29,10 @@ const Nav508 = props => {
           visibility: 'visible',
         })
       }
-    })
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   const toggleNav = () => {

@@ -27,7 +27,8 @@ const NavDropdown = props => {
     }
 
     // Switch between mobile and desktop menus
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
+      alert('adding event listener in dropdown')
       if (
         (window.innerWidth < 1170) &
         (subMenuHiderRef.current.style.height !== 'auto')
@@ -60,7 +61,10 @@ const NavDropdown = props => {
         })
         // }
       }
-    })
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   const toggleSubmenu = () => {
