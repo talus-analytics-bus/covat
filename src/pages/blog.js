@@ -142,7 +142,7 @@ const Blog = () => {
   return (
     <Layout>
       <Helmet
-        title={`Clear COVID Blog`}
+        title={`COVAT Blog`}
         meta={[
           {
             name: 'description',
@@ -152,7 +152,7 @@ const Blog = () => {
       />
 
       <header className={styles.header}>
-        <h1>Clear COVID Blog</h1>
+        <h1>Press Releases and Reports</h1>
         <Link to="/contact/">Contact us</Link>
       </header>
 
@@ -181,7 +181,7 @@ const Blog = () => {
 
         <section className={styles.recentPosts}>
           <form>
-            <label htmlFor="search">Search posts</label>
+            <label htmlFor="search">Search</label>
             <input
               id="search"
               type="text"
@@ -191,7 +191,7 @@ const Blog = () => {
               placeholder="search for..."
             />
           </form>
-          <h1>Recent Posts</h1>
+          <h1>Recent Reports and Press Releases</h1>
           {createRecentPostsElements(posts)}
         </section>
       </section>

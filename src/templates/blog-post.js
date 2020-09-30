@@ -70,11 +70,11 @@ export default function Template({
             })}
           </h2>
         </header>
+        <h3>{post.data.Author}</h3>
         <div className={styles.imageContainer}>
           <img src={post.data.Cover_Image[0].url} alt={post.data.Title} />
         </div>
 
-        <h3>{post.data.Author}</h3>
         <section
           dangerouslySetInnerHTML={{
             __html: unified()

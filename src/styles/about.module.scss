@@ -1,3 +1,5 @@
+@import 'theme';
+
 .header,
 .main {
   margin: auto;
@@ -57,6 +59,14 @@
 
 .main {
   margin-bottom: 5rem;
+
+  h2 {
+    color: $key-color;
+    border-bottom: 1px solid $key-color;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+  }
+
   p {
     padding-bottom: 1rem;
   }
@@ -66,6 +76,7 @@
 
     li {
       padding-bottom: 0.25em;
+      padding-left: 0.5em;
     }
   }
 
@@ -89,4 +100,67 @@
   //     }
   //   }
   // }
+}
+
+.footer {
+  margin-top: 2rem;
+  padding-bottom: 5rem;
+  // border-top: 2px solid #409385;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+
+  h1 {
+    font-weight: 400;
+    font-size: 1rem;
+    flex-grow: 1;
+    text-align: center;
+    color: $key-color;
+
+    @media (max-width: 900px) {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+
+  a {
+    position: relative;
+    height: 3.25rem;
+    flex-grow: 1;
+
+    img {
+      margin: auto;
+      height: 100%;
+      width: auto;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      display: block;
+    }
+
+    @media (min-width: 900px) {
+      &:before {
+        display: block;
+        position: absolute;
+        content: '';
+        top: 50%;
+        bottom: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        width: 2px;
+        height: 2rem;
+        border-radius: 2px;
+        background-color: $key-color;
+      }
+    }
+  }
+
+  .talus {
+    height: 2.5rem;
+  }
+
+  .georgetown {
+    height: 3.5rem;
+  }
 }

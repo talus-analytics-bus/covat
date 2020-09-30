@@ -1,3 +1,5 @@
+@import 'theme';
+
 .header,
 .main {
   margin: auto;
@@ -132,7 +134,7 @@
       h2 {
         font-size: 18px;
         font-weight: 500;
-        color: #168e49;
+        color: $accent-color-2;
         text-transform: uppercase;
       }
 
@@ -142,7 +144,7 @@
       }
 
       a {
-        color: #168e49;
+        color: $accent-color-2;
       }
 
       p {

@@ -257,11 +257,11 @@ const Resources = props => {
   return (
     <Layout>
       <Helmet
-        title={`Clear COVID Resources`}
+        title={`COVAT Resources`}
         meta={[
           {
             name: 'description',
-            content: 'Resources curated by the Clear COVID team of experts.',
+            content: 'Resources curated by the COVAT team of experts.',
           },
         ]}
       />

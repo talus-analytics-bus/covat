@@ -46,8 +46,8 @@ const Contact = () => {
         </h2>
       )
     } else {
-      data['subject'] = 'New message from Clear COVID Contact Form'
-      data['site'] = 'Clear COVID'
+      data['subject'] = 'New message from COVAT Contact Form'
+      data['site'] = 'COVAT'
       setErrorMessage('')
       setSubmitButtonText('Submitting...')
       axios
@@ -73,11 +73,11 @@ const Contact = () => {
   return (
     <Layout>
       <Helmet
-        title={`Contact the Clear COVID team`}
+        title={`Contact the COVAT team`}
         meta={[
           {
             name: 'description',
-            content: `Clear COVID Contact Form`,
+            content: `COVAT Contact Form`,
           },
         ]}
       />

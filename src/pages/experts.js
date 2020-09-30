@@ -54,11 +54,11 @@ const About = () => {
   return (
     <Layout>
       <Helmet
-        title={`Clear COVID Resources`}
+        title={`COVAT Resources`}
         meta={[
           {
             name: 'description',
-            content: 'Resources curated by the Clear COVID team of experts.',
+            content: 'Resources curated by the COVAT team of experts.',
           },
         ]}
       />
@@ -88,7 +88,13 @@ const About = () => {
               ),
           }}
         />
-        <h1 className={styles.bottomBorder}>The Experts</h1>
+        <h1 className={styles.bottomBorder}>
+          {
+            queryResult.aboutPageText.nodes.find(
+              node => node.data.Section_Name === 'Header'
+            ).data.Markdown
+          }
+        </h1>
         {bioSections}
         <div
           className={styles.disclaimer}

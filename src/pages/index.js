@@ -1,8 +1,8 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import { Helmet } from 'react-helmet'
+
 import unified from 'unified'
 import markdown from 'remark-parse'
 import html from 'remark-html'
@@ -10,8 +10,6 @@ import html from 'remark-html'
 import Layout from '../components/Layout/Layout'
 
 import styles from '../styles/index.module.scss'
-
-import placeholder from '../assets/images/placeholder.svg'
 
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffleArray(array) {
@@ -89,7 +87,7 @@ const LandingPage = props => {
   return (
     <Layout ampOpen={props.ampOpen || false}>
       <Helmet
-        title={`Clear COVID: COVID-19 Vaccination experts`}
+        title={`COVAT: COVID-19 Vaccination experts`}
         meta={[
           {
             name: 'description',
@@ -130,7 +128,7 @@ const LandingPage = props => {
                 }}
               />
               <Link className={styles.buttonlink} to="/experts/">
-                Meet the Experts
+                Meet Our Experts
               </Link>
             </div>
             <div className={styles.right}></div>
@@ -246,7 +244,7 @@ const LandingPage = props => {
                         .join(' ') +
                       '... ' +
                       renderToString(
-                        <Link to={blogpost.data.URL}>read more</Link>
+                        <Link to={blogpost.data.URL}>read full report</Link>
                       ),
                   }}
                 ></p>
@@ -260,26 +258,26 @@ const LandingPage = props => {
               </Link>
             </div>
           </div>
-          <div className={styles.media}>
-            <h1>In the News</h1>
-            <div className={styles.logos}>
-              <OutboundLink target="_blank" rel="noopener noreferrer" href="#">
-                <img src={placeholder} alt="placeholder logo" />
-              </OutboundLink>
-              <OutboundLink target="_blank" rel="noopener noreferrer" href="#">
-                <img src={placeholder} alt="placeholder logo" />
-              </OutboundLink>
-              <OutboundLink target="_blank" rel="noopener noreferrer" href="#">
-                <img src={placeholder} alt="placeholder logo" />
-              </OutboundLink>
-              <OutboundLink target="_blank" rel="noopener noreferrer" href="#">
-                <img src={placeholder} alt="placeholder logo" />
-              </OutboundLink>
-              <OutboundLink target="_blank" rel="noopener noreferrer" href="#">
-                <img src={placeholder} alt="placeholder logo" />
-              </OutboundLink>
-            </div>
-          </div>
+          {/* <div className={styles.media}> */}
+          {/*   <h1>In the News</h1> */}
+          {/*   <div className={styles.logos}> */}
+          {/*     <OutboundLink target="_blank" rel="noopener noreferrer" href="#"> */}
+          {/*       <img src={placeholder} alt="placeholder logo" /> */}
+          {/*     </OutboundLink> */}
+          {/*     <OutboundLink target="_blank" rel="noopener noreferrer" href="#"> */}
+          {/*       <img src={placeholder} alt="placeholder logo" /> */}
+          {/*     </OutboundLink> */}
+          {/*     <OutboundLink target="_blank" rel="noopener noreferrer" href="#"> */}
+          {/*       <img src={placeholder} alt="placeholder logo" /> */}
+          {/*     </OutboundLink> */}
+          {/*     <OutboundLink target="_blank" rel="noopener noreferrer" href="#"> */}
+          {/*       <img src={placeholder} alt="placeholder logo" /> */}
+          {/*     </OutboundLink> */}
+          {/*     <OutboundLink target="_blank" rel="noopener noreferrer" href="#"> */}
+          {/*       <img src={placeholder} alt="placeholder logo" /> */}
+          {/*     </OutboundLink> */}
+          {/*   </div> */}
+          {/* </div> */}
         </main>
       </div>
     </Layout>

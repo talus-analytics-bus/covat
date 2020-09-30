@@ -11,6 +11,9 @@ import unified from 'unified'
 import markdown from 'remark-parse'
 import html from 'remark-html'
 
+import talusLogo from '../assets/logos/talus-logo-01.png'
+import georgetownLogo from '../assets/logos/Georgetown-small.png'
+
 const About = () => {
   const queryResult = useStaticQuery(graphql`
     query aboutPage {
@@ -28,11 +31,11 @@ const About = () => {
   return (
     <Layout>
       <Helmet
-        title={`Clear COVID Resources`}
+        title={`COVAT Resources`}
         meta={[
           {
             name: 'description',
-            content: 'Resources curated by the Clear COVID team of experts.',
+            content: 'Resources curated by the COVAT team of experts.',
           },
         ]}
       />
@@ -62,6 +65,15 @@ const About = () => {
               ),
           }}
         />
+        <footer className={styles.footer}>
+          <h1>Supported By</h1>
+          <a href="https://ghss.georgetown.edu/" className={styles.georgetown}>
+            <img src={georgetownLogo} alt="Georgetown University" />
+          </a>
+          <a href="http://talusanalytics.com/" className={styles.talus}>
+            <img src={talusLogo} alt="Talus Analytics" />
+          </a>
+        </footer>
       </section>
     </Layout>
   )

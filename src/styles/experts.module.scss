@@ -1,3 +1,5 @@
+@import 'theme';
+
 .header,
 .main {
   margin: auto;
@@ -76,10 +78,25 @@
       width: 10rem;
       height: 10rem;
       object-fit: cover;
+      object-position: 50% 0%;
+    }
+
+    h1,
+    h2,
+    p {
+      padding: 0 2rem;
+    }
+
+    h2 {
+      font-family: 'noto sans bold';
+      font-size: 1.1rem;
+    }
+
+    h1 {
+      color: $key-color;
     }
 
     p {
-      padding: 1rem 2rem;
     }
 
     @media (max-width: 900px) {

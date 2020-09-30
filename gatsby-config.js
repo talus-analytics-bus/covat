@@ -8,6 +8,25 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: 'UA-179245880-1',
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Defers execution of google analytics script after page load
+        defer: true,
+      },
+    },
+    {
       resolve: `gatsby-source-airtable`,
       options: {
         apiKey: process.env.AIRTABLE_API_KEY, // may instead specify via env, see below
@@ -25,7 +44,7 @@ module.exports = {
           {
             baseId: `appMbNcOXaqDud7ts`,
             tableName: `Experts Page Text`,
-            tableView: `Grid view`,
+            tableView: `Last Name Alphabetized`,
           },
           {
             baseId: `appMbNcOXaqDud7ts`,
@@ -34,6 +53,7 @@ module.exports = {
           {
             baseId: `appMbNcOXaqDud7ts`,
             tableName: `Resources`,
+            tableView: `Grid view`,
           },
           {
             baseId: `appMbNcOXaqDud7ts`,
