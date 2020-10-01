@@ -47,7 +47,7 @@ const Contact = () => {
       )
     } else {
       data['subject'] = 'New message from COVAT Contact Form'
-      data['site'] = 'COVAT Now'
+      data['site'] = 'COVAT'
       setErrorMessage('')
       setSubmitButtonText('Submitting...')
       axios
