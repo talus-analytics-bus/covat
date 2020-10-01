@@ -52,7 +52,7 @@ const Contact = () => {
       setSubmitButtonText('Submitting...')
       axios
         .post(
-          'https://p0hkpngww3.execute-api.us-east-1.amazonaws.com/submit',
+          'https://9a8pmml6ca.execute-api.us-east-1.amazonaws.com/submit',
           JSON.stringify(data),
           { headers: { 'Content-Type': 'application/json' } }
         )
