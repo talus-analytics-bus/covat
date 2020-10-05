@@ -78,8 +78,6 @@ const LandingPage = props => {
   `)
   const blogpost = data.blogPost.edges[0].node
 
-  console.log(data.resources.edges.map(edge => edge.node.data))
-
   const [resource] = React.useState(
     shuffleArray(data.resources.edges.map(edge => edge.node.data))[0]
   )
