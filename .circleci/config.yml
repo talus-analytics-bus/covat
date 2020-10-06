@@ -1,0 +1,116 @@
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@0.1.13
+
+jobs:
+  deploy-prod:
+    working_directory: ~/repo
+
+    docker:
+      - image: cimg/node:14.4
+
+    steps:
+      - checkout
+
+      - run:
+          name: Installing Deployment Dependencies
+          working_directory: /
+          command: |
+            sudo apt-get -y -qq update
+            sudo apt-get -y install python3-pip python3-dev g++ build-essential
+            pip3 install --upgrade pip
+            sudo apt-get remove python-pip
+            pip3 install --upgrade setuptools pytz
+            pip3 install awsebcli==3.10.0
+            pip3 install boto3
+
+      - aws-cli/install
+      - aws-cli/configure
+
+      - run:
+          name: yarn install
+          command: cd covid-local-gatsby; yarn install --network-timeout 1000000
+
+      - run:
+          name: gatsby build
+          command: cd covid-local-gatsby; yarn build;
+          # command: npm i -g gatsby-cli; cd covid-local-gatsby; gatsby build
+
+      - run:
+          name: deploy
+          command: cd covid-local-gatsby; aws s3 sync public/ s3://covid-checklist --delete
+
+      - run:
+          name: cloudfront invalidation
+          command: cd .circleci; python3 invalidate.py E268NLA9SJTWCC
+
+
+      - run:
+          name: Notify Slack
+          command: |
+            curl -X POST -H 'Content-type: application/json' --data '{"text":"http://covid-local-dev-gatsby.s3-website.us-east-2.amazonaws.com/"}' \
+            https://hooks.slack.com/services/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
+
+  deploy-gatsby:
+    working_directory: ~/repo
+
+    docker:
+      - image: cimg/node:14.4
+
+    steps:
+      - checkout
+
+      - run:
+          name: Installing Deployment Dependencies
+          working_directory: /
+          command: |
+            sudo apt-get -y -qq update
+            sudo apt-get -y install python3-pip python3-dev g++ build-essential
+            pip3 install --upgrade pip
+            sudo apt-get remove python-pip
+            pip3 install --upgrade setuptools pytz
+            pip3 install awsebcli==3.10.0
+            pip3 install boto3
+
+      - aws-cli/install
+      - aws-cli/configure
+
+      - run:
+          name: yarn install
+          command: cd covid-local-gatsby; yarn install --network-timeout 1000000
+
+      - run:
+          name: gatsby build
+          command: cd covid-local-gatsby; yarn build;
+          # command: yarn global add gatsby-cli; cd covid-local-gatsby; gatsby build
+
+      - run:
+          name: deploy
+          command: cd covid-local-gatsby; aws s3 sync public/ s3://covid-local-dev-gatsby --delete
+
+      - run:
+          name: cloudfront invalidation
+          command: cd .circleci; python3 invalidate.py E14XXUI2OGXVF3
+
+      - run:
+          name: Notify Slack
+          command: |
+            curl -X POST -H 'Content-type: application/json' --data '{"text":"http://covid-local-dev-gatsby.s3-website.us-east-2.amazonaws.com/"}' \
+            https://hooks.slack.com/services/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
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - deploy-prod:
+          filters:
+            branches:
+              only:
+                - master
+
+      - deploy-gatsby:
+          filters:
+            branches:
+              only:
+                - gatsby
