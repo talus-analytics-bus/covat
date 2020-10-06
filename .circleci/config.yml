@@ -30,29 +30,28 @@ jobs:
 
       - run:
           name: yarn install
-          command: cd covid-local-gatsby; yarn install --network-timeout 1000000
+          command: yarn install --network-timeout 1000000
 
       - run:
           name: gatsby build
-          command: cd covid-local-gatsby; yarn build;
-          # command: npm i -g gatsby-cli; cd covid-local-gatsby; gatsby build
+          command: yarn build;
 
       - run:
           name: deploy
-          command: cd covid-local-gatsby; aws s3 sync public/ s3://covid-checklist --delete
+          command: aws s3 sync public/ s3://covat-live --delete
 
-      - run:
-          name: cloudfront invalidation
-          command: cd .circleci; python3 invalidate.py E268NLA9SJTWCC
+      # - run:
+      #     name: cloudfront invalidation
+      #     command: cd .circleci; python3 invalidate.py distroID
 
 
       - run:
           name: Notify Slack
           command: |
-            curl -X POST -H 'Content-type: application/json' --data '{"text":"http://covid-local-dev-gatsby.s3-website.us-east-2.amazonaws.com/"}' \
+            curl -X POST -H 'Content-type: application/json' --data '{"text":"http://covat-live.s3-website-us-west-2.amazonaws.com"}' \
             https://hooks.slack.com/services/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
 
-  deploy-gatsby:
+  deploy-test:
     working_directory: ~/repo
 
     docker:
@@ -78,25 +77,24 @@ jobs:
 
       - run:
           name: yarn install
-          command: cd covid-local-gatsby; yarn install --network-timeout 1000000
+          command: yarn install --network-timeout 1000000
 
       - run:
           name: gatsby build
-          command: cd covid-local-gatsby; yarn build;
-          # command: yarn global add gatsby-cli; cd covid-local-gatsby; gatsby build
+          command: yarn build;
 
       - run:
           name: deploy
-          command: cd covid-local-gatsby; aws s3 sync public/ s3://covid-local-dev-gatsby --delete
+          command: aws s3 sync public/ s3://covat-live --delete
 
-      - run:
-          name: cloudfront invalidation
-          command: cd .circleci; python3 invalidate.py E14XXUI2OGXVF3
+      # - run:
+      #     name: cloudfront invalidation
+      #     command: cd .circleci; python3 invalidate.py distroID
 
       - run:
           name: Notify Slack
           command: |
-            curl -X POST -H 'Content-type: application/json' --data '{"text":"http://covid-local-dev-gatsby.s3-website.us-east-2.amazonaws.com/"}' \
+            curl -X POST -H 'Content-type: application/json' --data '{"text":"http://covat-live.s3-website-us-west-2.amazonaws.com"}' \
             https://hooks.slack.com/services/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
 
 workflows:
@@ -109,8 +107,8 @@ workflows:
               only:
                 - master
 
-      - deploy-gatsby:
+      - deploy-test:
           filters:
             branches:
               only:
-                - gatsby
+                - dev

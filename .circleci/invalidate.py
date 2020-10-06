@@ -18,7 +18,7 @@ from urllib.parse import quote
 
 PATHS = []
 CLIENT = boto3.client('cloudfront')
-PUBLIC_DIR = '../covid-local-gatsby/public/'
+PUBLIC_DIR = '../public/'
 
 try:
 	DISTRIBUTION_ID = sys.argv[1]
@@ -33,7 +33,7 @@ def format_path(paths):
 		path += string
 
 	return "%20".join(path.split())\
-		.replace('../covid-local-gatsby/public', '')\
+		.replace(PUBLIC_DIR, '')\
 		.replace('//', '/')\
 		.replace(' ', '%20')
 
