@@ -18,7 +18,7 @@ from urllib.parse import quote
 
 PATHS = []
 CLIENT = boto3.client('cloudfront')
-PUBLIC_DIR = '../public/'
+PUBLIC_DIR = '../public'
 
 try:
 	DISTRIBUTION_ID = sys.argv[1]
