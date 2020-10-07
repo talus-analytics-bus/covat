@@ -16,7 +16,7 @@ from urllib.parse import quote
 	
 
 
-PATHS = []
+PATHS = ['/']
 CLIENT = boto3.client('cloudfront')
 PUBLIC_DIR = '../public'
 
