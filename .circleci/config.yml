@@ -85,11 +85,11 @@ jobs:
 
       - run:
           name: deploy
-          command: aws s3 sync public/ s3://covat-live --delete
+          command: aws s3 sync public/ s3://covat-test --delete
 
-      # - run:
-      #     name: cloudfront invalidation
-      #     command: cd .circleci; python3 invalidate.py distroID
+      - run:
+          name: cloudfront invalidation
+          command: cd .circleci; python3 invalidate.py EB9TNQ5NIG6N5
 
       - run:
           name: Notify Slack
