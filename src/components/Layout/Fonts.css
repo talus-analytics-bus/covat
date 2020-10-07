@@ -5,8 +5,7 @@
   font-family: 'Noto Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Noto Sans Regular'), local('NotoSans-Regular'),
-    url(/assets/fonts/web/sans/NotoSans-Regular.woff2) format('woff2');
+  src: url(/assets/fonts/web/sans/NotoSans-Regular.woff2) format('woff2');
 }
 
 @font-face {
@@ -35,8 +34,7 @@
   font-family: 'Noto Serif';
   font-style: normal;
   font-weight: 600;
-  src: local('Noto Serif Medium'), local('NotoSerif-Medium'),
-    url(/assets/fonts/web/serif/NotoSerif-Medium.woff2) format('woff2');
+  src: url(/assets/fonts/web/serif/NotoSerif-Medium.woff2) format('woff2');
 }
 
 @font-face {
