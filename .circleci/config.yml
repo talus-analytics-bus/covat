@@ -40,9 +40,9 @@ jobs:
           name: deploy
           command: aws s3 sync public/ s3://covat-live --delete
 
-      # - run:
-      #     name: cloudfront invalidation
-      #     command: cd .circleci; python3 invalidate.py distroID
+      - run:
+          name: cloudfront invalidation
+          command: cd .circleci; python3 invalidate.py E21OEED8YKFZNX
 
 
       - run:
