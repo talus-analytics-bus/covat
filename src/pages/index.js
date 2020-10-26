@@ -61,7 +61,7 @@ const LandingPage = props => {
           node {
             id
             data {
-              Blog_Text
+              Excerpt
               Cover_Image {
                 url
               }
@@ -233,7 +233,7 @@ const LandingPage = props => {
                       unified()
                         .use(markdown)
                         .use(html)
-                        .processSync(blogpost.data.Blog_Text)
+                        .processSync(blogpost.data.Excerpt)
                         // Need to get just the text from the first paragraph
                         .contents.split(/<\/p>/g)[0]
                         .replace('<p>', '')
