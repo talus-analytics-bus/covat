@@ -25,6 +25,7 @@ const Blog = () => {
           node {
             id
             data {
+              Excerpt
               Blog_Text
               Cover_Image {
                 url
@@ -79,7 +80,7 @@ const Blog = () => {
                 unified()
                   .use(markdown)
                   .use(html)
-                  .processSync(post.data.Blog_Text)
+                  .processSync(post.data.Excerpt)
                   // Need to get just the text from the first paragraph
                   .contents.split(/<\/p>/g)[0]
                   .replace('<p>', '')

@@ -137,7 +137,7 @@ const Resources = props => {
     isCaseSensitive: false,
     distance: 100,
     shouldSort: true,
-    keys: ['Name', 'Description', 'Topic', 'Organization'],
+    keys: ['Name', 'Description', 'Topic', 'Organization', 'Link'],
   }
 
   const fuse = new Fuse(sortedResources, searchOptions)
