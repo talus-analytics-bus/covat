@@ -99,6 +99,16 @@
     p {
     }
 
+    .otherInterests {
+      margin-left: 2rem;
+      margin-top: 0.5rem;
+      width: max-content;
+      color: #0c7f8e;
+      cursor: pointer;
+      text-decoration: underline;
+      &:hover {
+      }
+    }
     @media (max-width: 900px) {
       flex-direction: column;
 
@@ -110,5 +120,66 @@
 
   .disclaimer {
     margin-bottom: 5rem;
+  }
+}
+
+.tipContainer {
+  display: flex;
+  flex-direction: column;
+  h1 {
+    font-size: 1.3rem;
+    padding-bottom: 5px;
+    color: $accent-color-2;
+  }
+}
+
+.conflictsOfInterest {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 500px;
+  pre {
+    margin: 0px;
+  }
+  code {
+    font-family: 'Open Sans';
+    color: gray;
+    font-style: italic;
+  }
+  h1 {
+    font-size: 1.1rem;
+    color: black;
+  }
+  :nth-of-type(even) {
+    border-left: 1px solid gray;
+    padding-left: 10px;
+  }
+  > p,
+  > h1 {
+    padding: 5px;
+    border-bottom: 1px solid gray;
+  }
+  > p:last-child,
+  > p:nth-last-child(2) {
+    border-bottom: 0px solid transparent;
+  }
+}
+
+[class*='__react_component_tooltip'] {
+  &[class*='type-light'] {
+    background-color: none;
+    font-size: 0.9rem;
+    opacity: 1 !important;
+    display: flex;
+    flex-flow: column;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    z-index: 10000;
+
+    // do not use default padding amount with certain tooltips
+    &[id='scaleTip'],
+    &[id='statusTip'] {
+      padding: 0;
+    }
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Link, useStaticQuery, graphql } from 'gatsby'
+import { renderToString } from 'react-dom/server'
 
 import Layout from '../components/Layout/Layout'
 
@@ -10,6 +11,9 @@ import styles from '../styles/experts.module.scss'
 import unified from 'unified'
 import markdown from 'remark-parse'
 import html from 'remark-html'
+
+// tooltip
+import ReactTooltip from 'react-tooltip'
 
 const About = () => {
   const queryResult = useStaticQuery(graphql`
@@ -25,6 +29,7 @@ const About = () => {
               url
               filename
             }
+            Conflicts_of_Interest
           }
         }
       }
@@ -38,15 +43,38 @@ const About = () => {
       .map(bio => (
         <div className={styles.bio} key={bio.data.Markdown}>
           <img src={bio.data.Portrait[0].url} alt="Portrait" />
-          <div
-            className={styles.headerTextSection}
-            dangerouslySetInnerHTML={{
-              __html: unified()
-                .use(markdown)
-                .use(html)
-                .processSync(bio.data.Markdown),
-            }}
-          />
+          <div>
+            <div
+              className={styles.headerTextSection}
+              dangerouslySetInnerHTML={{
+                __html: unified()
+                  .use(markdown)
+                  .use(html)
+                  .processSync(bio.data.Markdown),
+              }}
+            ></div>
+            <div
+              data-tip={renderToString(
+                <div className={styles.tipContainer}>
+                  <div className={styles.tipHeader}>
+                    <h1>Other interests</h1>
+                  </div>
+                  <div
+                    className={styles.conflictsOfInterest}
+                    dangerouslySetInnerHTML={{
+                      __html: unified()
+                        .use(markdown)
+                        .use(html)
+                        .processSync(bio.data.Conflicts_of_Interest),
+                    }}
+                  />
+                </div>
+              )}
+              className={styles.otherInterests}
+            >
+              <i>Other interests</i>
+            </div>
+          </div>
         </div>
       ))
   )
@@ -110,6 +138,7 @@ const About = () => {
           }}
         />
       </section>
+      <ReactTooltip effect="solid" type="light" html={true} place="right" />
     </Layout>
   )
 }
