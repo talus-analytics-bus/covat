@@ -30,7 +30,7 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{
             __html: ` 
               window.dataLayer = window.dataLayer || [];
-              window["ga-disable-UA-179245880-1"] = true;`,
+              // window["ga-disable-UA-179245880-1"] = true;`,
           }}
         />
       </head>
@@ -56,19 +56,9 @@ export default function HTML(props) {
            */
           function setupGA(allowed) {
             if (!allowed) {
-              window["ga-disable-UA-179245880-1"] = true;
+              document.cookie = 'gatsby-plugin-google-analytics-gdpr_cookies-enabled=false'
             } else {
-              window["ga-disable-UA-179245880-1"] = false;
-              /**
-               * Helper function for defining gtag cookies
-               * @method gtag
-               * @return {[type]} [description]
-               */
-              function gtag() {
-                dataLayer.push(arguments);
-              }
-              gtag("js", new Date());
-              gtag("config", "UA-179245880-1");
+              document.cookie = 'gatsby-plugin-google-analytics-gdpr_cookies-enabled=true'
             }
           }
           window.cookieconsent.initialise({
