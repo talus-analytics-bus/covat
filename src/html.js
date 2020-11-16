@@ -22,17 +22,6 @@ export default function HTML(props) {
           href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"
         />
         {props.headComponents}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-179245880-1"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: ` 
-              window.dataLayer = window.dataLayer || [];
-              // window["ga-disable-UA-179245880-1"] = true;`,
-          }}
-        />
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
@@ -76,7 +65,6 @@ export default function HTML(props) {
               message:
                 "COVAT uses cookies to ensure you get the best experience possible."
             },
-            // https://developers.google.com/analytics/devguides/collection/analyticsjs/user-opt-out
             onInitialise: function(status) {
               var type = this.options.type;
               var didConsent = this.hasConsented();
