@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-// triggering build with comment commit
+// triggering build with comment
 
 export default function HTML(props) {
   React.useEffect(() => {}, [])
