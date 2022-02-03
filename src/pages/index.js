@@ -21,6 +21,8 @@ function shuffleArray(array) {
   return shuffled
 }
 
+// comment to trigger build
+
 const LandingPage = props => {
   const data = useStaticQuery(graphql`
     query homePage {
